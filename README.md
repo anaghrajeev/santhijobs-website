@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Santhijobs Website
 
-## Getting Started
+A premium, production-ready business portfolio website for a placements and recruitment consultancy. Built with Next.js App Router, Tailwind CSS, Framer Motion, and React Hook Form.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Modern & Premium Design**: Clean typography (Sora + Inter), subtle gradients, and glassmorphism.
+- **Fully Responsive**: Mobile-first approach ensuring a great experience on phones, tablets, and large screens.
+- **Subtle Animations**: Uses Framer Motion for scroll-triggered fades, text reveals, and hover interactions.
+- **WhatsApp Integration**: Enquiry form processes user input and opens a pre-filled WhatsApp click-to-chat window.
+- **Easy to Edit**: All content (text, placements, links, business info) is isolated in the `/src/data/` directory for simple non-developer maintenance.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup & Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Environment Variables**:
+   By default, the WhatsApp number is loaded from the data file, but you can override it by creating a `.env.local` file:
+   ```env
+   NEXT_PUBLIC_WHATSAPP_NUMBER=919037008009
+   ```
 
-## Learn More
+3. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## How to Edit Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To update website content, you do not need to modify the UI components. Simply edit the files in the `src/data/` folder:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **`src/data/site.ts`**: Contains the business name, tagline, description, location, contact info (including WhatsApp number), and social media links. Update this file to reflect the correct contact details.
+- **`src/data/placements.ts`**: Contains the data for the "Recent Placements" section. You can add, edit, or remove placement highlight cards here, as well as update the list of "Hiring Partners".
 
-## Deploy on Vercel
+## How to Change the WhatsApp Number
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The WhatsApp number determines where form enquiries are sent. There are two ways to update it:
+1. **Via Environment Variable** (Recommended for security): Set `NEXT_PUBLIC_WHATSAPP_NUMBER` in your `.env` or hosting provider settings (e.g., `919876543210`). The number must include the country code without the `+` sign.
+2. **Via Data File**: Directly update `siteConfig.contact.whatsapp` in `src/data/site.ts`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment to Vercel
+
+This Next.js project is fully optimized for Vercel deployment without needing a backend.
+
+1. Push your code to a GitHub, GitLab, or Bitbucket repository.
+2. Log in to [Vercel](https://vercel.com/) and click "Add New Project".
+3. Import your repository.
+4. (Optional) Add your environment variables (e.g., `NEXT_PUBLIC_WHATSAPP_NUMBER`).
+5. Click **Deploy**. Vercel will automatically detect Next.js and apply the correct build settings (`npm run build`).
+
+## Technologies Used
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
+- [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
